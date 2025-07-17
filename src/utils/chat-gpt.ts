@@ -18,9 +18,14 @@ export async function getChatResponse(message:string):Promise<string | null>{
     }
     
     if(url){
-        const response =  await axios.post(url,body);
-        console.log("Respuesta:",response);
-        return response.data.response as string;
+        try{
+            const response =  await axios.post(url,body);
+            console.log("Respuesta:",response);
+            return response.data.response as string;
+        }catch(e){
+            
+        }
+        
     }
     return null;
 }

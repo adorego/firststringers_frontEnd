@@ -13,7 +13,7 @@ export default function Navbar() {
         <Link href={"/"}>
           <div className="z-40 relative w-[128px] h-[56px] lg:w-[198px] lg:h-[87px]">
             <Image
-              src="/logo.png"
+              src="/dark_logo.png"
               alt="Logo"
               fill
               sizes="100vw"
