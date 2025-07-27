@@ -35,7 +35,7 @@ export default function OnBoarding(){
                         setStep(3);
                     }, 5000);
 
-                },5000)
+                },3000)
             }
         }, 100);
         }, delay);

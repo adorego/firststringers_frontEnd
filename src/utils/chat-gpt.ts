@@ -7,7 +7,7 @@ interface ChatRequestDto {
 
 export async function getChatResponse(message:string):Promise<string | null>{
     const url = process.env.NEXT_PUBLIC_FS_BACKEND_URL;
-    
+    console.log("url:",url);
     const data:ChatRequestDto = {
         prompt:message,
         model:'gpt-4o'
@@ -19,6 +19,7 @@ export async function getChatResponse(message:string):Promise<string | null>{
     
     if(url){
         try{
+            console.log("url:",url);
             const response =  await axios.post(url,body);
             console.log("Respuesta:",response);
             return response.data.response as string;

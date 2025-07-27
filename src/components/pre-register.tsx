@@ -20,20 +20,23 @@ export default function PreRegisterChat(){
     const status = useRef(0);
     const [messages, setMessage] = useState<Message[]>([]);
     const [input, setInput] = useState('');
+    const startedRef = useRef(false);
 
-    useEffect(()=>{
-        let mounted = true;
-        const startConversation = async ()=>{
-             if(!mounted) return
-             reStart_userSession();
-             const newMessage: Message = {role:'user', content: "Hello"};
-             const response = await getChatResponse(newMessage.content);
-             console.log("CGPT response:", response);
-             response ? setMessage(prev=>[...prev,{role:'bot',content:response}]): null;
-        }
-        startConversation();
-       
-    },[])
+   useEffect(() => {
+    if (startedRef.current) return;
+    startedRef.current = true;
+
+    const startConversation = async () => {
+        reStart_userSession();
+        const newMessage: Message = { role: 'user', content: "Hello" };
+        const response = await getChatResponse(newMessage.content);
+        console.log("CGPT response:", response);
+        response ? setMessage(prev => [...prev, { role: 'bot', content: response }]) : null;
+    };
+
+    startConversation();
+    }, []);
+    
     const handleSend = async () =>{
         if(!input.trim()) return;
 
@@ -92,7 +95,7 @@ export default function PreRegisterChat(){
                     onClick={handleSend}
                     className="bg-[var(--background)] hover:bg-blue-700 text-white px-4 py-2 rounded-full text-sm"
                     >
-                    Send
+                        Send
                     </button>
                 </div>
             </div>
