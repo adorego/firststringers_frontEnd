@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import {Poppins } from "next/font/google";
 import "./globals.css";
-import Navbar from "@/components/nav-bar";
-import LoadingWrapper from "@/components/loading-wrapper";
+// import Navbar from "@/components/nav-bar";
+// import LoadingWrapper from "@/components/loading-wrapper";
 
 const poppinsSans = Poppins({
   weight:"400",

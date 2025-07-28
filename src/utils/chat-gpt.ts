@@ -24,7 +24,7 @@ export async function getChatResponse(message:string):Promise<string | null>{
             console.log("Respuesta:",response);
             return response.data.response as string;
         }catch(e){
-            
+            console.log("Error al llamar al servidor:", e);
         }
         
     }

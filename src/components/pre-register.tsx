@@ -9,15 +9,9 @@ interface Message{
     content:string;
 }
 
-const dialog = [
-    "I´m your sport Mentor",
-    "Please tell me your age?",
-    "Where are you from ?"
-]
 
 export default function PreRegisterChat(){
     const turn = useRef(1);//0 bot
-    const status = useRef(0);
     const [messages, setMessage] = useState<Message[]>([]);
     const [input, setInput] = useState('');
     const startedRef = useRef(false);
@@ -31,7 +25,10 @@ export default function PreRegisterChat(){
         const newMessage: Message = { role: 'user', content: "Hello" };
         const response = await getChatResponse(newMessage.content);
         console.log("CGPT response:", response);
-        response ? setMessage(prev => [...prev, { role: 'bot', content: response }]) : null;
+        if(response){
+            setMessage(prev => [...prev, { role: 'bot', content: response }])
+        }
+        
     };
 
     startConversation();
@@ -46,10 +43,14 @@ export default function PreRegisterChat(){
         turn.current = 0;
         const response:string|null = await getChatResponse(newMessage.content);
         console.log("CGPT response:", response);
-        response ? setMessage(prev=>[...prev,{role:'bot',content:response}]): null;
+        if(response){
+            setMessage(prev=>[...prev,{role:'bot',content:response}])
+        }
+        
 
 
-    }
+    };
+
     const handleKeyDown = (e: React.KeyboardEvent) => {
         if (e.key === 'Enter') handleSend();
     };

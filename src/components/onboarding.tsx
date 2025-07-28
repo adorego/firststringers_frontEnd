@@ -2,50 +2,49 @@
 import Image from "next/image";
 import { useRouter } from 'next/navigation';
 import { AnimatePresence, motion } from "framer-motion";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 
-
+const fullText =
+    "The AI-powered social network for athlete development, discovery, and recruitment.".toUpperCase();
+    
 
 export default function OnBoarding(){
-     const [displayedText, setDisplayedText] = useState("");
-     const [step,setStep] = useState(1);
-     const fullText =
-    "The AI-powered social network for athlete development, discovery, and recruitment.".toUpperCase();
+    const [displayedText, setDisplayedText] = useState("");
+    const [step,setStep] = useState(1);
     const step2Text = "STARTS WITH YOU";
-    let interval:NodeJS.Timeout; 
+    const intervalRef = useRef<NodeJS.Timeout | null>(null);
+    const timeoutRef2 = useRef<NodeJS.Timeout | null>(null);
+    const timeoutRef3 = useRef<NodeJS.Timeout | null>(null);
     const delay = 3000;
     const router = useRouter();
 
     useEffect(() => {
-        let timeOut2:NodeJS.Timeout;
-        let timeOut3:NodeJS.Timeout;
-        const timeOut = setTimeout(() => {
+        const timeout = setTimeout(() => {
             let index = 0;
-            interval = setInterval(() => {
+            intervalRef.current = setInterval(() => {
             index++;
             if (index <= fullText.length) {
                 setDisplayedText(fullText.substring(0, index));
             } else {
-                clearInterval(interval);
-                timeOut2 = setTimeout(()=>{
-                    setStep(2);
-                    setDisplayedText(step2Text);
-                    timeOut3 = setTimeout(() => {
-                        setStep(3);
-                    }, 5000);
-
-                },3000)
+                if (intervalRef.current) clearInterval(intervalRef.current);
+                timeoutRef2.current = setTimeout(() => {
+                setStep(2);
+                setDisplayedText(step2Text);
+                timeoutRef3.current = setTimeout(() => {
+                    setStep(3);
+                }, 5000);
+                }, 3000);
             }
-        }, 100);
+            }, 100);
         }, delay);
-        return () => {
-            clearTimeout(timeOut);
-            clearTimeout(timeOut2);
-            clearInterval(interval);
-        }
 
-        
+        return () => {
+            clearTimeout(timeout);
+            if (intervalRef.current) clearInterval(intervalRef.current);
+            if (timeoutRef2.current) clearTimeout(timeoutRef2.current);
+            if (timeoutRef3.current) clearTimeout(timeoutRef3.current);
+        };
     }, []);
 
     useEffect(()=>{

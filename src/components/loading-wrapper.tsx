@@ -2,7 +2,6 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import SplashScreen from './splash-screen';
 
 const LoadingWrapper = ({ children }: { children: React.ReactNode }) => {
   const [loading, setLoading] = useState(true);
@@ -18,7 +17,6 @@ const LoadingWrapper = ({ children }: { children: React.ReactNode }) => {
 
   return (
     <>
-      {loading && <SplashScreen />}
       <div className={`${loading ? 'hidden' : 'block'}`}>{children}</div>
     </>
   );
