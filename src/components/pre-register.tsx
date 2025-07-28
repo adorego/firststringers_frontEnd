@@ -58,6 +58,7 @@ export default function PreRegisterChat(){
 
     return(
         <>
+            <div className="w-full px-4 sm:px-6 md:px-8">
             <h1 className="w-full mx-auto flex justify-center p-4">First Stringers Pre-Registration Mentor</h1>
             <div className="w-full max-w-2xl h-[80vh] mx-auto border rounded-xl shadow-lg flex flex-col bg-white">
                 
@@ -100,6 +101,7 @@ export default function PreRegisterChat(){
                     </button>
                 </div>
             </div>
+          </div>
         </>
         
     )
