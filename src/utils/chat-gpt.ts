@@ -20,8 +20,10 @@ export async function getChatResponse(message:string):Promise<string | null>{
     if(url){
         try{
             console.log("url:",url);
-            const response =  await axios.post(url,body,
-            {
+            const response =  await axios.post(url,body,{
+                headers: {
+                        'Content-Type': 'application/json',
+                },
                 withCredentials: true, // importante si `credentials: true` en backend
             });
             console.log("Respuesta:",response);
