@@ -1,3 +1,19 @@
+const text1 = `By using this website, you warrant on behalf of yourself, your users, and other parties you represent
+          that you will not:`
+const text2 = `transfer the materials to another person or "mirror" the materials on any other server;`
+
+const text3 = `harvest, collect, or gather user data without the user's consent; or`;
+
+const text4 = `Our website and the materials on our website are provided on an 'as is' basis. To the extent permitted by
+          law, First Stringers LLC makes no warranties, expressed or implied, and hereby disclaims and negates all
+          other warranties including, without limitation, implied warranties or conditions of merchantability,
+          fitness for a particular purpose, or non-infringement of intellectual property, or other violation of
+          rights.`
+const text5 = `In the context of this agreement, "consequential loss" includes any consequential loss, indirect loss,
+          real or anticipated loss of profit, loss of benefit, loss of revenue, loss of business, loss of goodwill,
+          loss of opportunity, loss of savings, loss of reputation, loss of use and/or loss or corruption of data,
+          whether under statute, contract, equity, tort (including negligence), indemnity or otherwise.`
+
 export default function TermsOfService() {
   return (
     <article className="mx-auto max-w-3xl px-5 py-8 leading-relaxed text-gray-900 font-sans">
@@ -46,8 +62,7 @@ export default function TermsOfService() {
       <section id="limitations-of-use" className="mt-10">
         <h2 className="text-2xl md:text-3xl font-semibold tracking-tight">Limitations of Use</h2>
         <p className="mt-4">
-          By using this website, you warrant on behalf of yourself, your users, and other parties you represent
-          that you will not:
+          {text1}
         </p>
         <ul className="mt-4 list-disc list-inside space-y-2">
           <li>
@@ -57,7 +72,7 @@ export default function TermsOfService() {
           <li>
             remove any copyright or other proprietary notations from any materials and software on this website;
           </li>
-          <li>transfer the materials to another person or "mirror" the materials on any other server;</li>
+          <li>{text2}</li>
           <li>
             knowingly or negligently use this website or any of its associated services in a way that abuses or
             disrupts our networks or any other service First Stringers LLC provides;
@@ -68,7 +83,7 @@ export default function TermsOfService() {
           </li>
           <li>use this website or its associated services in violation of any applicable laws or regulations;</li>
           <li>use this website in conjunction with sending unauthorized advertising or spam;</li>
-          <li>harvest, collect, or gather user data without the user's consent; or</li>
+          <li>{text3}</li>
           <li>
             use this website or its associated services in such a way that may infringe the privacy, intellectual
             property rights, or other rights of third parties.
@@ -95,11 +110,7 @@ export default function TermsOfService() {
       <section id="liability" className="mt-10">
         <h2 className="text-2xl md:text-3xl font-semibold tracking-tight">Liability</h2>
         <p className="mt-4">
-          Our website and the materials on our website are provided on an 'as is' basis. To the extent permitted by
-          law, First Stringers LLC makes no warranties, expressed or implied, and hereby disclaims and negates all
-          other warranties including, without limitation, implied warranties or conditions of merchantability,
-          fitness for a particular purpose, or non-infringement of intellectual property, or other violation of
-          rights.
+          {text4}
         </p>
         <p className="mt-4">
           In no event shall First Stringers LLC or its suppliers be liable for any consequential loss suffered or
@@ -108,10 +119,7 @@ export default function TermsOfService() {
           in writing, of the possibility of such damage.
         </p>
         <p className="mt-4">
-          In the context of this agreement, "consequential loss" includes any consequential loss, indirect loss,
-          real or anticipated loss of profit, loss of benefit, loss of revenue, loss of business, loss of goodwill,
-          loss of opportunity, loss of savings, loss of reputation, loss of use and/or loss or corruption of data,
-          whether under statute, contract, equity, tort (including negligence), indemnity or otherwise.
+          {text5}
         </p>
         <p className="mt-4">
           Because some jurisdictions do not allow limitations on implied warranties, or limitations of liability for

@@ -53,12 +53,12 @@ export default function PreRegisterChat(){
         turn.current = 0;
         const response:string|null = await getChatResponse(newMessage.content);
         console.log("CGPT response:", response);
-        const timeOutId = setTimeout(()=>{
+        setTimeout(()=>{
             if(response){
                 setMessage(prev=>[...prev,{role:'bot',content:response?.replace(/\r\n/g, '\n').trim() ?? ''}])
             }
         },1000);
-        //clearTimeout(timeOutId);
+        
         
         
 
@@ -100,7 +100,7 @@ export default function PreRegisterChat(){
                             <input
                                 type="text"
                                 value={input}
-                                onClick={e =>setInput("")}
+                                onClick={() =>setInput("")}
                                 onChange={e => setInput(e.target.value)}
                                 onKeyDown={handleKeyDown}
                                 placeholder="Write your message..."

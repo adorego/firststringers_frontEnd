@@ -1,12 +1,38 @@
+const text1 = `Your privacy is important to us. It is First Stringers LLC's policy to respect your privacy and
+          comply with any applicable law and regulation regarding any personal information we may collect
+          about you, including across our website,{' '}`
+const text2 = `We may ask for personal information — for example when you submit content to us, when you subscribe to
+          our newsletter, when you participate in any of our giveaways, sweepstakes, or promotions, when you
+          register an account, or when you contact us — which may include one or more of the following:`
+
+const text3 = `"Automatically collected" information refers to any information automatically sent by your devices in
+          the course of accessing our products and services.`;
+const text4 = `Information we collect falls into one of two categories: "voluntarily provided" information and
+          "automatically collected" information.`
+const text5 = `"Voluntarily provided" information refers to any information you knowingly and actively provide us
+          when using or participating in any of our services and promotions.`
+const text6 = `We may collect, hold, use, and disclose information for the following purposes, and personal information will not be further processed in a manner that is incompatible with these purposes:`
+
+const text7 = `to provide you with our platform's core features and services`
+
+const text8 = `The following section includes provisions that comply with the privacy laws of these states (California,
+          Colorado, Delaware, Florida, Virginia, and Utah) and is applicable only to the residents of those states.
+          Specific references to a particular state (in a heading or in the text) are only a reference to that
+          state's law and applies only to that state's residents. Non-state specific language applies to all of the
+          states listed above.`;
+
+const text9 = `Some browsers have a "Do Not Track" feature that lets you tell websites that you do not want to have your
+          online activities tracked. At this time, we do not respond to browser "Do Not Track" signals.`;
+
+// const text10 = ``;
+
 export default function PrivacyPolicy() {
   return (
     <article className="mx-auto max-w-3xl px-5 py-8 leading-relaxed text-gray-900 font-sans">
       <header className="mb-10">
         <h1 className="text-3xl md:text-4xl font-semibold tracking-tight">Privacy Policy</h1>
         <p className="mt-4">
-          Your privacy is important to us. It is First Stringers LLC's policy to respect your privacy and
-          comply with any applicable law and regulation regarding any personal information we may collect
-          about you, including across our website,{' '}
+          {text1}
           <a
             href="https://www.firststringers.com/"
             className="underline hover:no-underline"
@@ -44,23 +70,18 @@ export default function PrivacyPolicy() {
       <section id="information-we-collect" className="mt-10">
         <h2 className="text-2xl md:text-3xl font-semibold tracking-tight">Information We Collect</h2>
         <p className="mt-4">
-          Information we collect falls into one of two categories: "voluntarily provided" information and
-          "automatically collected" information.
+          {text4}
         </p>
         <p className="mt-4">
-          "Voluntarily provided" information refers to any information you knowingly and actively provide us
-          when using or participating in any of our services and promotions.
+          {text5}
         </p>
         <p className="mt-4">
-          "Automatically collected" information refers to any information automatically sent by your devices in
-          the course of accessing our products and services.
+          {text3}
         </p>
 
         <h3 className="mt-8 text-xl md:text-2xl font-semibold">Personal Information</h3>
         <p className="mt-4">
-          We may ask for personal information — for example when you submit content to us, when you subscribe to
-          our newsletter, when you participate in any of our giveaways, sweepstakes, or promotions, when you
-          register an account, or when you contact us — which may include one or more of the following:
+          {text2}
         </p>
         <ul className="mt-4 list-disc list-inside space-y-2">
           <li>Name</li>
@@ -88,9 +109,9 @@ export default function PrivacyPolicy() {
           <li>When you mention us on social media</li>
         </ul>
 
-        <p className="mt-6">We may collect, hold, use, and disclose information for the following purposes, and personal information will not be further processed in a manner that is incompatible with these purposes:</p>
+        <p className="mt-6">{text6}</p>
         <ul className="mt-4 list-disc list-inside space-y-2">
-          <li>to provide you with our platform's core features and services</li>
+          <li>{text7}</li>
           <li>to enable you to customise or personalise your experience of our website</li>
           <li>to contact and communicate with you</li>
           <li>
@@ -294,17 +315,12 @@ export default function PrivacyPolicy() {
       <section id="us-states" className="mt-10">
         <h2 className="text-2xl md:text-3xl font-semibold tracking-tight">Additional Disclosures for U.S. States Privacy Law Compliance.</h2>
         <p className="mt-4">
-          The following section includes provisions that comply with the privacy laws of these states (California,
-          Colorado, Delaware, Florida, Virginia, and Utah) and is applicable only to the residents of those states.
-          Specific references to a particular state (in a heading or in the text) are only a reference to that
-          state's law and applies only to that state's residents. Non-state specific language applies to all of the
-          states listed above.
+          {text8}
         </p>
 
         <h3 className="mt-8 text-xl md:text-2xl font-semibold">Do Not Track</h3>
         <p className="mt-4">
-          Some browsers have a "Do Not Track" feature that lets you tell websites that you do not want to have your
-          online activities tracked. At this time, we do not respond to browser "Do Not Track" signals.
+          {text9}
         </p>
         <p className="mt-4">
           We adhere to the standards outlined in this privacy policy, ensuring we collect and process personal
