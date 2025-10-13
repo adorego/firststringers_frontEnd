@@ -116,7 +116,7 @@ export default function PreRegisterChat(){
                         value={input}
                         onChange={(e) => setInput(e.target.value)}
                         onKeyDown={handleKeyDown}
-                        onFocus={(e)=>setInput("")}
+                        onFocus={()=>setInput("")}
                         onBlur={() => {
                             if (!input.trim()) setInput("Write your message...");
                         }} 
