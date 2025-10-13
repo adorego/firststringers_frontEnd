@@ -71,57 +71,115 @@ export default function PreRegisterChat(){
     
 
     return(
-        <>
-            <div className="w-full px-4 my-8 sm:px-6 md:px-8">
-                <div className="w-full md:max-w-[60%] mx-auto flex flex-col justify-center">
-                    <div className="rounded-xl">
-                        {/* Área de mensajes: altura fija + scroll */}
-                        <div 
-                            ref={chatContainerRef}
-                            className="h-[30vh] overflow-y-auto p-6 space-y-4">
-                            {messages.map((msg, index) => (
-                                <div
-                                    key={index}
-                                    className={`flex ${
-                                    msg.role === 'user' ? 'justify-end' : 'justify-start'
-                                    }`}>
-                                        <div className={`px-4 py-2 rounded-xl max-w-[75%] text-sm prose max-w-none whitespace-pre-line ${
-                                    msg.role === 'user'
-                                    ? 'bg-blue-600 text-white'
-                                    : 'bg-gray-100 text-gray-800'}`}>
-                                    {msg.content}
-                                    </div>
-                                </div>
-                            ))}
-                    </div>
-                    {/* Input abajo */}
-                    <div className="p-4 border-gray-200">
-                        <div className="flex items-center gap-2">
-                            <input
-                                type="text"
-                                value={input}
-                                onClick={() =>setInput("")}
-                                onChange={e => setInput(e.target.value)}
-                                onKeyDown={handleKeyDown}
-                                placeholder="Write your message..."
-                                className="flex-1 p-3 rounded-lg bg-gray-200 border border-gray-600 text-gray focus:outline-none focus:ring-2 focus:ring-blue-500"
-                            />
-                        
-                        </div>
-                    </div>
-                </div>
-              </div>  
-
-                
-                <div className="flex flex-col text-center mt-4 pb-0 mx-2 ">
-                    <motion.p>
-                        If you’re under 18, make sure you have parental or guardian consent. You need to be 13+ to join.
-                    </motion.p>
-                </div>
-                
-          </div>
-        </>
         
+        <div className="w-full px-4 my-8 sm:px-6 md:px-8">
+            <div className="w-full md:max-w-[60%] mx-auto flex flex-col justify-center">
+            <div className="rounded-xl">
+                {/* Área de mensajes: altura fija + scroll */}
+                <div
+                ref={chatContainerRef}
+                className="h-[30vh] overflow-y-auto p-6 space-y-4"
+                >
+                {messages.map((msg, index) => (
+                    <div
+                    key={index}
+                    className={`flex ${
+                        msg.role === "user" ? "justify-end" : "justify-start"
+                    }`}
+                    >
+                    <div
+                        className={`px-4 py-2 rounded-xl max-w-[75%] text-sm prose max-w-none whitespace-pre-line ${
+                        msg.role === "user"
+                            ? "bg-blue-600 text-white"
+                            : "bg-gray-100 text-gray-800"
+                        }`}
+                    >
+                        {msg.content}
+                    </div>
+                    </div>
+                ))}
+                </div>
+
+                {/* Input abajo (sticky) */}
+                <form
+                onSubmit={(e) => {
+                    e.preventDefault();
+                    handleSend();
+                }}
+                className="pr-4 border border-gray-200 sticky bottom-0 bg-white"
+                >
+                <div className="flex items-center gap-2">
+                    {/* Contenedor relativo para poner el botón dentro del input en móvil */}
+                    <div className="relative flex-1">
+                    <input
+                        type="text"
+                        value={input}
+                        onChange={(e) => setInput(e.target.value)}
+                        onKeyDown={handleKeyDown}
+                        onFocus={(e)=>setInput("")}
+                        onBlur={() => {
+                            if (!input.trim()) setInput("Write your message...");
+                        }} 
+                        placeholder={input}
+                        className="w-full p-3 pr-30 rounded-lg bg-gray-200 border border-gray-300 text-gray-900
+                                focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    />
+
+                        {/* Botón DENTRO del input (solo móvil) */}
+                        <button
+                            type="submit"
+                            disabled={!input?.trim()}
+                            aria-label="Enviar mensaje"
+                            title="Enviar"
+                            className="md:hidden absolute right-1 top-1/2 -translate-y-1/2
+                                    inline-flex items-center justify-center
+                                    px-3 py-1.5 rounded-md bg-blue-600 text-white text-sm
+                                    disabled:opacity-40 disabled:cursor-not-allowed
+                                    focus:outline-none focus:ring-2 focus:ring-blue-500"
+                        >
+                            {/* Ícono paper plane */}
+                            <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            className="h-5 w-5"
+                            viewBox="0 0 24 24"
+                            fill="currentColor"
+                            >
+                            <path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z" />
+                            </svg>
+                        </button>
+                    </div>
+
+                    {/* Botón visible en desktop (fuera del input) */}
+                    <button
+                    type="submit"
+                    disabled={!input?.trim()}
+                    className="hidden md:inline-flex items-center px-3 py-2 rounded-lg border border-gray-300
+                                hover:bg-gray-100 disabled:opacity-40 disabled:cursor-not-allowed
+                                focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    aria-label="Enviar mensaje"
+                    title="Enviar"
+                    >
+                    <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        className="h-5 w-5"
+                        viewBox="0 0 24 24"
+                        fill="currentColor"
+                    >
+                        <path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z" />
+                    </svg>
+                    </button>
+                </div>
+                </form>
+            </div>
+            </div>
+
+            <div className="flex flex-col text-center mt-4 pb-0 mx-2">
+            <motion.p>
+                If you’re under 18, make sure you have parental or guardian consent. You
+                need to be 13+ to join.
+            </motion.p>
+            </div>
+        </div>
     )
 
 }
