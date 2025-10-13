@@ -3,7 +3,7 @@
 import { getChatResponse } from "@/utils/chat-gpt";
 import { reStart_userSession } from "@/utils/session";
 import { motion } from "framer-motion";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useLayoutEffect, useRef, useState } from "react";
 
 interface Message{
     role: 'bot' | 'user';
@@ -16,12 +16,10 @@ export default function PreRegisterChat(){
     const [messages, setMessage] = useState<Message[]>([]);
     const [input, setInput] = useState('Write your message');
     const startedRef = useRef(false);
-    const chatContainerRef = useRef<HTMLDivElement>(null);
+    const bottomRef = useRef<HTMLDivElement>(null);
 
-    useEffect(() => {
-        if (chatContainerRef.current) {
-            chatContainerRef.current.scrollTop = chatContainerRef.current.scrollHeight;
-        }
+    useLayoutEffect(() => {
+        bottomRef.current?.scrollIntoView({ behavior: 'smooth', block: 'end' });
     }, [messages]);
 
    useEffect(() => {
@@ -77,11 +75,12 @@ export default function PreRegisterChat(){
             <div className="rounded-xl">
                 {/* Área de mensajes: altura fija + scroll */}
                 <div
-                ref={chatContainerRef}
-                className="h-[30vh] overflow-y-auto p-6 space-y-4"
+                
+                className="h-[60vh] md:h-[40vh] overflow-y-auto p-6 space-y-4"
                 >
                 {messages.map((msg, index) => (
-                    <div
+                   <div
+                    ref={bottomRef}
                     key={index}
                     className={`flex ${
                         msg.role === "user" ? "justify-end" : "justify-start"
