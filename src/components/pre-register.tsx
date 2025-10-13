@@ -73,7 +73,7 @@ export default function PreRegisterChat(){
     return(
         <>
             <div className="w-full px-4 my-8 sm:px-6 md:px-8">
-                <div className="max-w-[60%] mx-auto flex flex-col justify-center">
+                <div className="w-full md:max-w-[60%] mx-auto flex flex-col justify-center">
                     <div className="rounded-xl">
                         {/* Área de mensajes: altura fija + scroll */}
                         <div 
@@ -113,12 +113,9 @@ export default function PreRegisterChat(){
               </div>  
 
                 
-                <div className="flex flex-col text-center mt-4 pb-0 ">
-                    <motion.h2 className="text-3xl">
-                        Starts with you
-                    </motion.h2>
+                <div className="flex flex-col text-center mt-4 pb-0 mx-2 ">
                     <motion.p>
-                        Join First Stringers early to get priority access when we go live.
+                        If you’re under 18, make sure you have parental or guardian consent. You need to be 13+ to join.
                     </motion.p>
                 </div>
                 
