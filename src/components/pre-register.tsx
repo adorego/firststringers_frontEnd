@@ -76,7 +76,7 @@ export default function PreRegisterChat(){
                 {/* Área de mensajes: altura fija + scroll */}
                 <div
                 
-                className="h-[60vh] md:h-[40vh] overflow-y-auto p-6 space-y-4"
+                className="h-[40vh] overflow-y-auto p-6 space-y-4"
                 >
                 {messages.map((msg, index) => (
                    <div
