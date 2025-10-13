@@ -106,7 +106,7 @@ export default function PreRegisterChat(){
                     e.preventDefault();
                     handleSend();
                 }}
-                className="pr-4 border border-gray-200 sticky bottom-0 bg-white"
+                className="border border-gray-200 sticky bottom-0 bg-white"
                 >
                 <div className="flex items-center gap-2">
                     {/* Contenedor relativo para poner el botón dentro del input en móvil */}
@@ -149,7 +149,7 @@ export default function PreRegisterChat(){
                         </button>
                     </div>
 
-                    {/* Botón visible en desktop (fuera del input) */}
+                    {/* Botón visible en desktop (fuera del input)
                     <button
                     type="submit"
                     disabled={!input?.trim()}
@@ -167,7 +167,7 @@ export default function PreRegisterChat(){
                     >
                         <path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z" />
                     </svg>
-                    </button>
+                    </button> */}
                 </div>
                 </form>
             </div>
