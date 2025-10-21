@@ -109,7 +109,7 @@ export default function PreRegisterChat(){
                 >
                 <div className="flex items-center gap-2">
                     {/* Contenedor relativo para poner el botón dentro del input en móvil */}
-                    <div className="relative flex-1">
+                    <div className="relative flex-1 bg-gray-200 rounded-full">
                     <input
                         type="text"
                         value={input}
@@ -120,7 +120,7 @@ export default function PreRegisterChat(){
                             if (!input.trim()) setInput("Write your message...");
                         }} 
                         placeholder={input}
-                        className="w-full p-3 pr-30 rounded-lg bg-gray-200 border border-gray-300 text-gray-900
+                        className="w-full p-3 pr-30 bg-gray-200 text-gray-900
                                 focus:outline-none focus:ring-2 focus:ring-blue-500"
                     />
 
@@ -130,11 +130,17 @@ export default function PreRegisterChat(){
                             disabled={!input?.trim()}
                             aria-label="Enviar mensaje"
                             title="Enviar"
-                            className="md:hidden absolute right-1 top-1/2 -translate-y-1/2
+                            // className="md:hidden absolute right-1 top-1/2 -translate-y-1/2
+                            //         inline-flex items-center justify-center
+                            //         px-3 py-1.5 rounded-md bg-blue-600 text-white text-sm
+                            //         disabled:opacity-40 disabled:cursor-not-allowed
+                            //         focus:outline-none focus:ring-2 focus:ring-blue-500"
+                            className="absolute right-1 top-1/2 -translate-y-1/2
                                     inline-flex items-center justify-center
-                                    px-3 py-1.5 rounded-md bg-blue-600 text-white text-sm
-                                    disabled:opacity-40 disabled:cursor-not-allowed
-                                    focus:outline-none focus:ring-2 focus:ring-blue-500"
+                                    h-9 w-9 rounded-full bg-blue-600 text-white
+                                    cursor-pointer hover:bg-blue-700 hover:scale-105
+                                    transition transform duration-150
+                                    disabled:opacity-40 disabled:cursor-not-allowed"
                         >
                             {/* Ícono paper plane */}
                             <svg
@@ -148,25 +154,7 @@ export default function PreRegisterChat(){
                         </button>
                     </div>
 
-                    {/* Botón visible en desktop (fuera del input)
-                    <button
-                    type="submit"
-                    disabled={!input?.trim()}
-                    className="hidden md:inline-flex items-center px-3 py-2 rounded-lg border border-gray-300
-                                hover:bg-gray-100 disabled:opacity-40 disabled:cursor-not-allowed
-                                focus:outline-none focus:ring-2 focus:ring-blue-500"
-                    aria-label="Enviar mensaje"
-                    title="Enviar"
-                    >
-                    <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        className="h-5 w-5"
-                        viewBox="0 0 24 24"
-                        fill="currentColor"
-                    >
-                        <path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z" />
-                    </svg>
-                    </button> */}
+                    
                 </div>
                 </form>
             </div>
