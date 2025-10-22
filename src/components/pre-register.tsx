@@ -72,11 +72,11 @@ export default function PreRegisterChat(){
         
         <div className="w-full px-4 my-8 sm:px-6 md:px-8">
             <div className="w-full md:max-w-[60%] mx-auto flex flex-col justify-center">
-            <div className="rounded-xl">
+                <div className="rounded-xl ">
                 {/* Área de mensajes: altura fija + scroll */}
                 <div
                 
-                className="h-[40vh] overflow-y-auto p-6 space-y-4"
+                className="h-[40vh] overflow-y-auto p-0 space-y-4"
                 >
                 {messages.map((msg, index) => (
                    <div
@@ -87,7 +87,7 @@ export default function PreRegisterChat(){
                     }`}
                     >
                     <div
-                        className={`px-4 py-2 rounded-xl max-w-[75%] text-sm prose max-w-none whitespace-pre-line ${
+                        className={`px-4 py-2 rounded-xl w-full text-sm prose max-w-none whitespace-pre-line ${
                         msg.role === "user"
                             ? "bg-blue-600 text-white"
                             : "bg-gray-100 text-gray-800"
@@ -105,24 +105,27 @@ export default function PreRegisterChat(){
                     e.preventDefault();
                     handleSend();
                 }}
-                className="border border-gray-200 sticky bottom-0 bg-white"
+                className="border border-gray-200 sticky bottom-0"
                 >
                 <div className="flex items-center gap-2">
                     {/* Contenedor relativo para poner el botón dentro del input en móvil */}
-                    <div className="relative flex-1 bg-gray-200 rounded-full">
-                    <input
-                        type="text"
-                        value={input}
-                        onChange={(e) => setInput(e.target.value)}
-                        onKeyDown={handleKeyDown}
-                        onFocus={()=>setInput("")}
-                        onBlur={() => {
-                            if (!input.trim()) setInput("Write your message...");
-                        }} 
-                        placeholder={input}
-                        className="w-full p-3 pr-30 bg-gray-200 text-gray-900
-                                focus:outline-none focus:ring-2 focus:ring-blue-500"
-                    />
+                    <div className="relative flex-1">
+                        <div className="bg-gray-200 rounded-xl overflow-hidden 
+                        focus-within:ring-2 focus-within:ring-blue-500 focus-within:ring-inset">
+                            <input
+                                type="text"
+                                value={input}
+                                onChange={(e) => setInput(e.target.value)}
+                                onKeyDown={handleKeyDown}
+                                onFocus={()=>setInput("")}
+                                onBlur={() => {
+                                    if (!input.trim()) setInput("Write your message...");
+                                }} 
+                                placeholder={input}
+                                className="w-full p-3 bg-transparent text-gray-900
+                                        border-0 outline-none appearance-none
+                                        rounded-none focus:ring-0" />
+                        </div>
 
                         {/* Botón DENTRO del input (solo móvil) */}
                         <button
