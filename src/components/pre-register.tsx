@@ -72,7 +72,7 @@ export default function PreRegisterChat(){
         
         <div className="w-full px-4 my-8 sm:px-6 md:px-8">
             <div className="w-full md:max-w-[60%] mx-auto flex flex-col justify-center">
-                <div className="rounded-xl ">
+                <div className="rounded-xl">
                 {/* Área de mensajes: altura fija + scroll */}
                 <div
                 
@@ -105,11 +105,11 @@ export default function PreRegisterChat(){
                     e.preventDefault();
                     handleSend();
                 }}
-                className="border border-gray-200 sticky bottom-0"
+                className="sticky bottom-0"
                 >
-                <div className="flex items-center gap-2">
+                <div className="flex items-center gap-2 bg-gray-200 rounded-xl ">
                     {/* Contenedor relativo para poner el botón dentro del input en móvil */}
-                    <div className="relative flex-1">
+                    <div className="relative flex-1 bg-gray-200 rounded-xl ">
                         <div className="bg-gray-200 rounded-xl overflow-hidden 
                         focus-within:ring-2 focus-within:ring-blue-500 focus-within:ring-inset">
                             <input
