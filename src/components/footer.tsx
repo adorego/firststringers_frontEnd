@@ -2,6 +2,7 @@ import Link from "next/link";
 import { FaInstagram, FaLinkedin, FaYoutube } from "react-icons/fa";
 
 export function Footer(){
+    const year = new Date().getFullYear();
     return(
         <div className="bg-primary w-full h-[67px] lg:h-[97px] flex justify-between items-center px-4">
             <div className="flex gap-x-4 items-center justify-between md:justify-center">
@@ -26,7 +27,7 @@ export function Footer(){
             </div>
             <div className="flex hidden sm:block">
                 <Link href="/" target="_blank">
-                    2025 First Stringers Inc.
+                    {year} First Stringers Inc.
                 </Link>
             </div>
             
