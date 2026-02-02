@@ -27,7 +27,7 @@ export function Footer(){
             </div>
             <div className="flex hidden sm:block">
                 <Link href="/" target="_blank">
-                    {year} First Stringers Inc.
+                    {Number(year).toString()} First Stringers Inc.
                 </Link>
             </div>
             
