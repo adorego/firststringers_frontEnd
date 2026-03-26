@@ -14,13 +14,13 @@ const poppinsSans = Poppins({
 export const metadata: Metadata = {
   title: "First Stringers",
   description:
-    "First Stringers is an AI-Powered social network for athlete development, discovery, and recruiting.",
+    "First Stringers is an intelligent social network for athlete development, discovery, and recruiting.",
   metadataBase: new URL("https://firststringersfrontend-staging.up.railway.app"),
   openGraph: {
     title: "First Stringers",
     description:
-      "The AI-powered social network for athlete development, discovery, and recruiting.",
-    url: "https://firststringersfrontend-staging.up.railway.app",
+      "The intelligent social network for athlete development, discovery, and recruiting.",
+    url: "https://firststringers.com",
     siteName: "First Stringers",
     images: [
       {
@@ -36,7 +36,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "First Stringers",
     description:
-      "The AI-powered social network for athlete development, discovery, and recruiting.",
+      "The intelligent social network for athlete development, discovery, and recruiting.",
     images: ["/og-image.png"],
   },
   icons: {

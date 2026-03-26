@@ -6,7 +6,7 @@ export default function Home() {
     <>
       <Head>
         <title>First Stringers – Athletic Discovery & Development</title>
-        <meta name="description" content="Join First Stringers: the AI-powered platform for athlete growth, recruitment and mentorship." />
+        <meta name="description" content="Join First Stringers: the intelligent platform for athlete growth, recruitment and mentorship." />
         <meta name="keywords" content="athletes, recruitment, sports, development, mentorship, First Stringers" />
         <meta name="robots" content="index, follow" />
         <meta property="og:title" content="First Stringers" />

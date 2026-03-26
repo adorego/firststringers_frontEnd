@@ -15,7 +15,7 @@ export default function OnBoarding(){
         <>
             <div className="w-full h-[80vh] flex flex-col items-center justify-center text-center px-4">
                 <motion.h1 className="text-5xl lg:text-8xl font-extrabold text-center max-w-[80%]">
-                    The AI-Powered social network for athletes.
+                    The intelligence network for athlete recruiting.
                 </motion.h1>
                 <motion.button
                             onClick={handlePreRegister}
